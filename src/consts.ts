@@ -1,27 +1,27 @@
 import type { SvgComponent } from "astro/types"
-import Email from "@/assets/icons/email.svg"
+//import Email from "@/assets/icons/email.svg"
 import GitHub from "@/assets/icons/github.svg"
-import RSS from "@/assets/icons/rss.svg"
-import Twitter from "@/assets/icons/twitter.svg"
+//import RSS from "@/assets/icons/rss.svg"
+import Twitter from "@/assets/icons/x.svg"
 
 export const SITE = {
-  title: "astro-erudite",
-  description: "An opinionated, unstyled blogging template built with Astro.",
+  title: "jvf.dev",
+  description: "A hub for software development insights.",
   locale: "en-US",
   dir: "ltr",
   defaultPageImage: "/static/opengraph-image.png",
-  defaultPostImage: "/static/1200x630.png",
+  defaultPostImage: "/static/opengraph-image.png",
 } as const
 
 export const NAVIGATION = [
   { href: "/blog", label: "Blog" },
-  { href: "/projects", label: "Projects" },
-  { href: "/authors", label: "Authors" },
+  //{ href: "/projects", label: "Projects" },
+  //{ href: "/authors", label: "Authors" },
 ]
 
 export const SOCIALS: { href: string; label: string; icon: SvgComponent }[] = [
-  { href: "https://github.com/jktrn", label: "GitHub", icon: GitHub },
-  { href: "https://twitter.com/enscrbe", label: "Twitter", icon: Twitter },
-  { href: "mailto:jason@enscribe.dev", label: "Email", icon: Email },
-  { href: "/rss.xml", label: "RSS", icon: RSS },
+  { href: "https://x.com/thejvfdev", label: "X", icon: Twitter },
+  { href: "https://github.com/thejvfdev", label: "GitHub", icon: GitHub },
+  //{ href: "mailto:joao@jvf.dev", label: "Email", icon: Email },
+  //{ href: "/rss.xml", label: "RSS", icon: RSS },
 ]
