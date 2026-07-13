@@ -5,6 +5,14 @@ import Layout from "@/layouts/Layout.astro"
 
 <Layout>
   <MetaPage slot="head" />
+  <profile-intro>
+    <h1 style="display:none">jvf.dev</h1>
+    <p class="role">Engine Programmer</p>
+    <p>
+      I’m drawn to the systems behind the software. I write about what I learn
+      while building and exploring them.
+    </p>
+  </profile-intro>
   <quote-entry>
     <blockquote>
       <p class="opening">All men dream—but not equally.</p>
@@ -14,28 +22,49 @@ import Layout from "@/layouts/Layout.astro"
         men, for they may act their dreams with open eyes, to make it possible.
       </p>
     </blockquote>
-    <hr>
     <cite>T. E. Lawrence, <i>Seven Pillars of Wisdom</i></cite>
   </quote-entry>
 </Layout>
 
 <style>
-  quote-entry {
+  profile-intro {
     display: block;
+    margin-block-end: var(--space-s);
     font-size: var(--step-0);
     color: var(--muted-foreground);
 
-    @media (width >= 64rem) {
-      margin-block-start: -0.2em;
+    h1 {
+      margin: 0;
+      font-size: var(--step-2);
+      line-height: calc(var(--leading-offset) + 1em);
+      font-weight: var(--font-weight-medium);
+      color: var(--foreground);
     }
+
+    .role {
+      margin-block: var(--space-3xs);
+      color: var(--foreground);
+    }
+
+    p:last-child {
+      margin-block: 0;
+    }
+  }
+
+  quote-entry {
+    display: block;
+    padding-inline-start: var(--space-m);
+    border-inline-start: 2px solid var(--border);
+    font-size: var(--step--1);
+    line-height: calc(var(--leading-offset) + 1em);
+    color: var(--muted-foreground);
 
     blockquote {
       margin: 0;
+      font-style: italic;
     }
 
     .opening {
-      font-size: var(--step-2);
-      line-height: calc(var(--leading-offset) + 1em);
       font-weight: var(--font-weight-medium);
       color: var(--foreground);
       margin-block-end: var(--space-2xs);
@@ -45,14 +74,9 @@ import Layout from "@/layouts/Layout.astro"
       margin: 0;
     }
 
-    hr {
-      margin-block: var(--space-m);
-      border-block-start: 2px solid var(--border);
-    }
-
     cite {
       display: block;
-      text-align: end;
+      margin-block-start: var(--space-xs);
       font-style: normal;
     }
   }

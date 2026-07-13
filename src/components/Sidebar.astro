@@ -14,8 +14,9 @@ const section = NAVIGATION.find(
 
 <aside data-bar>
   <sidebar-inner>
-    <a href="/" aria-label={SITE.title}>
+    <a class="site-logo" href="/" aria-label={SITE.title}>
       <span>{SITE.title}</span>
+      <span class="terminal-cursor" aria-hidden="true"></span>
     </a>
     <nav>
       <ul>
@@ -88,24 +89,31 @@ const section = NAVIGATION.find(
     flex-direction: column;
     gap: var(--space-2xs);
 
-    > a {
+    > .site-logo {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.12em;
       width: fit-content;
-      font-weight: var(--font-weight-medium);
+      font-weight: 700;
       font-size: var(--step-0);
+      line-height: 1;
+      letter-spacing: -0.04em;
       color: var(--foreground);
       text-decoration-line: none;
 
-      svg {
-        inline-size: 1.125rem;
-        block-size: 1.125rem;
+      .terminal-cursor {
+        inline-size: 0.36em;
+        block-size: 0.52em;
+        align-self: flex-end;
+        margin-block-end: 0.12em;
         flex-shrink: 0;
+        color: var(--muted-foreground);
+        background: currentColor;
+        animation: cursor-blink 1s steps(1, end) infinite;
       }
 
       @media (width < 26rem) {
-        span {
+        span:first-child {
           display: block;
         }
       }
@@ -175,6 +183,24 @@ const section = NAVIGATION.find(
     @media (width < 64rem) {
       margin-inline-start: 0;
       margin-inline-end: -0.5rem;
+    }
+  }
+
+  @keyframes cursor-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-cursor {
+      animation: none;
     }
   }
 </style>
