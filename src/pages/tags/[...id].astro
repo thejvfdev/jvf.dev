@@ -1,6 +1,6 @@
 ---
-import BlogCard from "@/components/BlogCard.astro"
 import MetaPage from "@/components/MetaPage.astro"
+import PostArchive from "@/components/PostArchive.astro"
 import Layout from "@/layouts/Layout.astro"
 import { getTags } from "@/lib/content"
 import type { CollectionEntry } from "astro:content"
@@ -30,15 +30,5 @@ const { tag, posts } = Astro.props
     description={`A collection of posts tagged with ${tag}.`}
     noindex
   />
-  <ul>
-    {posts.map((post) => <BlogCard post={post} />)}
-  </ul>
+  <PostArchive posts={posts} />
 </Layout>
-
-<style>
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
-  }
-</style>
